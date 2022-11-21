@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "subreddit-to-apprise"
+version = "0.1.0"
+description = ""
+authors = ["ItsNotGoodName <gurnaindeol@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+apprise = "^1.2.0"
+praw = "^7.6.1"
+python-dotenv = "^0.21.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.10.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+subreddit-to-apprise = 'src.subreddit_to_apprise.main:main'
