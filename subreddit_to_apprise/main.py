@@ -58,11 +58,10 @@ def main():
 
         # Notify
         for post in new_posts:
-            body = "https://reddit.com/" + post.permalink
+            body = "https://old.reddit.com" + post.permalink
+            print(f"{post.title} - {body}")
             if post.url != post.permalink:
                 body += "\n" + post.url
-
-            print(f"{post.title} - {body}")
             rise.notify(title=post.title, body=body)
 
         if len(new_posts) != 0:
