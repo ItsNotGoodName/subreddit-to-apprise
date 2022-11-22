@@ -8,8 +8,8 @@ Send new posts from subreddits to Apprise URLs.
 | ------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------ |
 | CLIENT_ID     |         | Yes      | App id from https://www.reddit.com/prefs/apps/                                                         |
 | CLIENT_SECRET |         | Yes      | App secret from https://www.reddit.com/prefs/apps/                                                     |
-| SUBREDDITS    |         | Yes      | One or more subreddits seperated by + signs                                                               |
-| LIMIT         | 5       |          | How many posts to fetch on each refresh                                                                 |
+| SUBREDDITS    |         | Yes      | One or more subreddits seperated by + signs                                                            |
+| LIMIT         | 5       |          | How many posts to fetch on each refresh                                                                |
 | INTERVAL      | 60      |          | Interval in seconds between each refresh                                                               |
 | APPRISE_URLS  |         |          | [Apprise URLs](https://github.com/caronc/apprise#productivity-based-notifications) seperated by spaces |
 
@@ -54,6 +54,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+### Fix
+
+- Repeated notifications when a post is deleted
 
 ## [0.1.0] - 2022-11-20
 

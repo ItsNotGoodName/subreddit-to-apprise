@@ -34,21 +34,24 @@ def main():
     )
     subreddit = reddit.subreddit(os.getenv("SUBREDDITS"))
 
-    # Get newest post
-    last_post = ""
-    posts = subreddit.new(limit=1)
-    for post in posts:
-        last_post = str(post)
+    # Get new posts
+    last_posts = []
+    for post in subreddit.new(limit=limit):
+        last_posts.append(post)
     print("Started")
-    time.sleep(interval)
 
     while True:
-        posts = subreddit.new(limit=limit)
+        time.sleep(interval)
 
-        # Get new posts in reverse order
+        # Get new posts
+        posts = []
+        for post in subreddit.new(limit=limit):
+            posts.append(post)
+
+        # Get new posts in old to new order
         new_posts = []
         for post in posts:
-            if str(post) == last_post:
+            if post in last_posts:
                 break
 
             new_posts.append(post)
@@ -64,7 +67,4 @@ def main():
                 body += "\n" + post.url
             rise.notify(title=post.title, body=body)
 
-        if len(new_posts) != 0:
-            last_post = str(new_posts[-1])
-
-        time.sleep(interval)
+        last_posts = posts
